@@ -25,14 +25,17 @@ const App = () => {
   const [password, setPassword] = useState("");
   const [userError,setUserError]=useState("");
   const [passError,setPassError]=useState("");
-  function handleSubmit(e) {
+ async function handleSubmit(e) {
     e.preventDefault();
     console.log("we are inside handle submit")
     let filterdata =
     data.filter((item) => {
       return item.email == email;
     })
-    setTimeout(() => {
+    
+    await new Promise(resolve=> setTimeout(resolve,3000));
+        
+    
       
         
         filterdata.length>0 ? (
@@ -47,7 +50,7 @@ const App = () => {
             setUserError("User not found")
          
         );
-    }, 3000);
+   
   }
 
 
